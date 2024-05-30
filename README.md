@@ -1,4 +1,3 @@
-!!![alt text](https://github.com/pilambdaepsilon/fooparam/tree/main/README_images/3sphere.jpg?raw=true)
 ![plot](./README_images/3sphere.jpg)
 
 # fooparam
