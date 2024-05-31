@@ -15,7 +15,7 @@ user-friendly way. It can be used to calculate the volume of a single 3-sphere (
    - You must use a command line interface and c++ compiler to install 3sphere. To do so, follow the steps below:
      1. clone the git repo with the command: `git clone git@github.com:pilambdaepsilon/3sphere`
      2. move into the git repo with the command: `cd 3sphere`
-     3. option1: if `make` is available on yout system, use the Makefile with the command: `make`
+     3. option1: if `make` is available on your system, use the Makefile with the command: `make`
      4. option2:directly compile the code with the command: `g++ foo.cc -o 3sphere`
      
 ### Usage:
