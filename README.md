@@ -38,7 +38,8 @@ user-friendly way. It can be used to calculate the volume of a single 3-sphere (
    
    `./3sphere -f [INPUT FILE NAME]`
    
-   where [INPUT FILE NAME] should be of the following format:
+   where `[INPUT FILE NAME]` should be of the following format:
    
    Column 1: radius
+   
    Column 2: unit (if the quantity is unitless, use any placeholder unit, such "NA"). Similarly, the results will be saved to a file if provided with a `-o` command line option.
