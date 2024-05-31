@@ -1,8 +1,10 @@
 /* Check for definition of pi, or define it */
 #include <vector>
 #include <string>
+#include <cstdlib>
 #include <sstream>
 #include <iostream>
+#include <fstream>
 #include <stdio.h>
 #include <algorithm>
 #ifndef M_PI
@@ -13,6 +15,7 @@ using namespace std;
 
 /*============== UNIT CONVERSION natural units where c = hBAR = kB  = 1 ===========*/
 const double pi = M_PI;
+char formatting_buffer[1024];
 
 
 
@@ -42,9 +45,10 @@ class Foo_et_al
       \sa QTstyle_Test(), ~QTstyle_Test(), testMeToo() and publicVar()
     */
     static double get_volume(double radius){
+       if(radius < 0.0){cerr << "!!! WARNING - Inside get_volume - negative radius provided !!!\n";}
        return 4./3 * pi * radius * radius * radius;
     }
-
+   
     //Use this function to check whether input strings are digits or not
     static bool is_integer(const string digit_string){
        return digit_string.find_first_not_of( "0123456789" ) == string::npos;
@@ -60,6 +64,21 @@ class Foo_et_al
           splits.push_back(split);                                                                                                                                                                
        }                                                                                                                                                                                          
        return splits;                                                                                                                                                                             
+    }
+
+    static char* get_command_option(char ** begin, char ** end, const string & option)
+    {
+        char ** itr = find(begin, end, option);
+        if (itr != end && ++itr != end)
+        {
+            return *itr;
+        }
+        return 0;
+    }
+    
+    static bool check_for_command_option(char** begin, char** end, const string& option)
+    {
+        return find(begin, end, option) != end;
     }
     
     //! A constructor.
