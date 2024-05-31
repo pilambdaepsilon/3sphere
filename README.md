@@ -45,4 +45,4 @@ user-friendly way. It can be used to calculate the volume of a single 3-sphere (
    Column 1: radius
    
    Column 2: unit (if the quantity is unitless, use any placeholder unit, such "NA"). Similarly, the results will be saved to a file if provided with a `-o` command line option.
-## For more detail see docs/doc.pdf
+## For more detail see doc/doc.pdf
