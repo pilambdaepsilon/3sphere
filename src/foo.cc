@@ -21,7 +21,12 @@ int main(int argc, char* argv[]){
       outfile = true;
       cout << "Outputting to file " << filename_out << '\n';
    }
+   //This ofstream needs a global scope so that I can freely write to it 
    ofstream output_file(filename_out);
+   //If we don't actually need it, then close it right away. TODO: use pointers to a global scope object
+   if(!outfile){
+      output_file.close();
+   }
 
    if((argc == 1) or (argc==3 and outfile)){
              string sphere_radii;
@@ -81,6 +86,7 @@ int main(int argc, char* argv[]){
            if(unit.size() == 0){unit = " ";}
            units_from_file.push_back(unit);
 	}
+        input_file.close();
         cout << "\nDetected [" << radii_from_file.size()-1 << "] 3-sphere radii from file... \n\n";
         cout << "Sphere number   ---   Radius      ---   Volume    ---     Unit\n";
         if (outfile){
