@@ -20,7 +20,7 @@ user-friendly way. It can be used to calculate the volume of a single 3-sphere (
      
 ### Usage:
 3sphere can be used in two main ways:
-1. Interactively through the command line, by running it without arguments: `./3sphere`. In this mode, . In interactive mode, you can al
+1. Interactively through the command line, by running it without arguments:
    
    a. Running without command line options
    
