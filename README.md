@@ -23,13 +23,22 @@ user-friendly way. It can be used to calculate the volume of a single 3-sphere (
 1. Interactively through the command line, by running it without arguments: `./3sphere`. In this mode, . In interactive mode, you can al
    
    a. Running without command line options
-   ```./3sphere```
+   
+   `./3sphere`
+   
    will minimally calculate the volume of any radii provided. you will need to provide a list of radii (with arbitrary units or unitless), separated by commas
+
    b. Running interactively while providing an output file command line option
+   
    `./3sphere -o [OUTPUT FILE NAME]`
+   
    will run `3sphere` in interactive mode and save the output to a file (where `[OUTPUT FILE NAME]` should be replaced by the desired file name)
-3. By providing a file with a list of radii
+   
+2. By providing a file with a list of radii
+   
    `./3sphere -f [INPUT FILE NAME]`
+   
    where [INPUT FILE NAME] should be of the following format:
+   
    Column 1: radius
    Column 2: unit (if the quantity is unitless, use any placeholder unit, such "NA"). Similarly, the results will be saved to a file if provided with a `-o` command line option.
