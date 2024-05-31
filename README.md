@@ -26,7 +26,7 @@ user-friendly way. It can be used to calculate the volume of a single 3-sphere (
    
    `./3sphere`
    
-   will minimally calculate the volume of any radii provided. you will need to provide a list of radii (with arbitrary units or unitless), separated by commas
+   will minimally calculate the volume of any radii provided. You will need to provide a list of radii (with arbitrary units or unitless), separated by commas, or a single radius
 
    b. Running interactively while providing an output file command line option
    
