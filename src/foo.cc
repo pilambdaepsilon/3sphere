@@ -1,7 +1,6 @@
 /* Implements the Foo et al. parametrization for calculating the volume of a 3-sphere using the radius */
 
-#include "constants.hh"
-
+#include "classes.hh"
 int main(int argc, char* argv[]){
    //Foo_et_
    cout << "\n";
@@ -14,8 +13,8 @@ int main(int argc, char* argv[]){
 
    bool outfile = false;
    char * filename_out;
-   if(Foo_et_al::check_for_command_option(argv, argv+argc, "-o")){
-      filename_out = Foo_et_al::get_command_option(argv, argv + argc, "-o");
+   if(Files_and_strings::check_for_command_option(argv, argv+argc, "-o")){
+      filename_out = Files_and_strings::get_command_option(argv, argv + argc, "-o");
       try{string filename_out_string = filename_out;}
       catch (const std::exception& e){cout << "Please ensure a filename is provided \n";}
       outfile = true;
@@ -34,7 +33,7 @@ int main(int argc, char* argv[]){
              getline(cin >> ws, sphere_radii);
              REMOVE_SPACES(sphere_radii)
              //cout << sphere_radii << '\n';
-             vector <string> sphere_radii_vec = Foo_et_al::split(sphere_radii, ',');
+             vector <string> sphere_radii_vec = Files_and_strings::split(sphere_radii, ',');
              cout << "\nDetected [" << sphere_radii_vec.size() << "] 3-sphere radii... \n\n";
              cout << "Sphere number   ---   Radius      ---   Volume    ---     Unit\n";
              if (outfile){
@@ -62,12 +61,12 @@ int main(int argc, char* argv[]){
              }
           output_file.close();
           }
-     else if(Foo_et_al::check_for_command_option(argv, argv+argc, "-h")){
+     else if(Files_and_strings::check_for_command_option(argv, argv+argc, "-h")){
         cout << "3sphere usage:\n" << "-h: print this help message\n" << "-f: provide a filename containing sphere radii\n" <<"-o: name of the output file holding Volume calculations\n" 
              << "- run without options for interactive mode\n\n";
      }
-     else if(Foo_et_al::check_for_command_option(argv, argv+argc, "-f")){
-        char * filename_in = Foo_et_al::get_command_option(argv, argv + argc, "-f");
+     else if(Files_and_strings::check_for_command_option(argv, argv+argc, "-f")){
+        char * filename_in = Files_and_strings::get_command_option(argv, argv + argc, "-f");
         cout << "Reading radii from file " << filename_in << "\n";
         ifstream input_file;
         input_file.open(filename_in);

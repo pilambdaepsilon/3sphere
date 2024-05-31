@@ -1,59 +1,42 @@
-/* Check for definition of pi, or define it */
-#include <vector>
-#include <string>
-#include <cstdlib>
-#include <sstream>
-#include <iostream>
-#include <fstream>
-#include <stdio.h>
-#include <algorithm>
-#ifndef M_PI
-#define M_PI           3.14159265358979323846
-#endif
-using namespace std;
-#define REMOVE_SPACES(x) x.erase(remove(x.begin(), x.end(), ' '), x.end());
+#include "constants_and_libraries.hh"
 
-/*============== UNIT CONVERSION natural units where c = hBAR = kB  = 1 ===========*/
-const double pi = M_PI;
-char formatting_buffer[1024];
-
-
-
-
+//Main class containing functions and quantities within the Foo et al. parametrization
 class Foo_et_al
 {
   public:
  
-    //! An enum.
-    /*! More detailed enum description. */
-    enum TEnum { 
-                 TVal1, /*!< Enum value TVal1. */  
-                 TVal2, /*!< Enum value TVal2. */  
-                 TVal3  /*!< Enum value TVal3. */  
-               } 
-         //! Enum pointer.
-         /*! Details. */
-         *enumPtr, 
-         //! Enum variable.
-         /*! Details. */
-         enumVar;  
-    //! Returns the volume of a 3sphere
+    //! Returns the volume of a single 3-sphere
     /*!
-      \param number_of_spheres is an integer argument for the number of spheres we are calculating the volume for.
-      \param radius is a double precision float for the radius of the spheres.
-      \return The test results
-      \sa QTstyle_Test(), ~QTstyle_Test(), testMeToo() and publicVar()
+      \param radius is a double precision float for the radius of the sphere.
+      \returnis 4./3 * pi * radius*radius*radius
     */
     static double get_volume(double radius){
        if(radius < 0.0){cerr << "!!! WARNING - Inside get_volume - negative radius provided !!!\n";}
        return 4./3 * pi * radius * radius * radius;
     }
    
-    //Use this function to check whether input strings are digits or not
+};
+
+//Main class containing functions and quantities within the Foo et al. parametrization
+class Files_and_strings
+{
+  public:
+ 
+    //! Determines whether a string is an integer, useful for counting the number of spheres
+    /*!
+      \param digit_string is an arbitrary string containing information
+      \returns the first index in the string that is not an integer
+    */
     static bool is_integer(const string digit_string){
        return digit_string.find_first_not_of( "0123456789" ) == string::npos;
     }
 
+    //! Splits and separates strings based on some delimiter
+    /*!
+      \param s is an arbitary string you want to separate into a vector
+      \param delimiter is the character used to delimit separate quantities in the string
+      \returns a vector of strings, with each element being a quantity separeted by the delimiter in the original string
+    */
     static vector<string> split(const string& s, char delimiter)                                                                                                                          
     {                                                                                                                                                                                             
        vector<string> splits;                                                                                                                                                           
@@ -66,6 +49,12 @@ class Foo_et_al
        return splits;                                                                                                                                                                             
     }
 
+    //! retrieves string after command line options used at runtime
+    /*!
+      \param begin (char**) is the first character of the string that matches the "option"
+      \param begin (char**) is the last character of the string that matches the "option"
+      \param option is a string consisting of the command line option we want to retrieve
+    */
     static char* get_command_option(char ** begin, char ** end, const string & option)
     {
         char ** itr = find(begin, end, option);
@@ -76,42 +65,15 @@ class Foo_et_al
         return 0;
     }
     
+    //! checks whether a command line option is used at runtime
+    /*!
+      \param begin (char**) is the first character of the string that matches the "option"
+      \param begin (char**) is the last character of the string that matches the "option"
+      \param option is a string consisting of the command line option we want to retrieve
+      \returns true if the string is of finite size
+    */
     static bool check_for_command_option(char** begin, char** end, const string& option)
     {
         return find(begin, end, option) != end;
     }
-    
-    //! A constructor.
-    /*!
-      A more elaborate description of the constructor.
-    */
-    Foo_et_al();
- 
-    //! A destructor.
-    /*!
-      A more elaborate description of the destructor.
-    */
-   ~Foo_et_al();
-    
-    //! A normal member taking two arguments and returning an integer value.
-    /*!
-      \param a an integer argument.
-      \param s a constant character pointer.
-      \return The test results
-      \sa QTstyle_Test(), ~QTstyle_Test(), testMeToo() and publicVar()
-    */
-    int testMe(int a,const char *s);
-       
-   
-    //! A public variable.
-    /*!
-      Details.
-    */
-    int publicVar;
-       
-    //! A function variable.
-    /*!
-      Details.
-    */
-    int (*handler)(int a,int b);
 };
