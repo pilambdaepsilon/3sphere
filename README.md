@@ -1,4 +1,4 @@
-![plot](./README_images/3sphere.jpg)
+![plot](./README_images/3spheren.jpg)
 
 # 3sphere
 Want to calculate 3D spherical volumes but have access to only radii? Look no further! `3sphere` uses the parametrization of Foo et al. to calculate the volume of a 3-sphere given its radius in a 
