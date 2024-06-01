@@ -36,7 +36,7 @@ user-friendly way. It can be used to calculate the volume of a single 3-sphere (
    
    will run `3sphere` in interactive mode and save the output to a file (where `[OUTPUT FILE NAME]` should be replaced by the desired file name)
    
-3. By providing a file with a list of radii
+2. By providing a file with a list of radii
    
    `./3sphere -f [INPUT FILE NAME]`
    
@@ -45,3 +45,4 @@ user-friendly way. It can be used to calculate the volume of a single 3-sphere (
    Column 1: radius
    
    Column 2: unit (if the quantity is unitless, use any placeholder unit, such "NA"). Similarly, the results will be saved to a file if provided with a `-o` command line option.
+## For more detail see doc/doc.pdf
