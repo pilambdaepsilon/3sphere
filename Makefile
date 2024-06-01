@@ -1,5 +1,4 @@
-#CC=g++
-CC=icc
+CC=g++
 
 3sphere: src/foo.cc src/constants_and_libraries.hh
 	@echo "Compiling 3sphere..."
