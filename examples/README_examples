@@ -1,0 +1,18 @@
+The files in the 3sphere/examples directory are intended as examples of the input and output of 3sphere.
+There are two files:
+1. infile.test: is an example of an input file for a 3sphere calculation. It contains 2 columns, separated 
+by a single space. The columns are organized as follows:
+                         [Radius]      [Unit]
+where [Radius] is the numerical value of the radius for the 3-sphere one in interested in calculating the
+volume for, and [Unit] is the radial unit. For unitless quantities, one must use an arbitrary placeholder
+unit (e.g., "N/A") 
+
+2. outfile.test: is the output of a 3sphere calculation. It contains 4 columns separated by three dashes 
+("---") and white space for legibility. The colums are organized as follows:
+               [Sphere index]         [Radius]          [Volume]        [Volume Unit]
+where [Sphere index] is an index labeling each sphere, [Radius] is the numerical value of the radius, 
+[Volume] is the numerical value of the volume resulting from the 3sphere calculation, and [Volume Unit]
+is the unit of the volume.
+
+For this example, one may run 3sphere in the following way, from the main directory (see Installation)
+                       ./3sphere -f examples/infile.test -o outfile.test
